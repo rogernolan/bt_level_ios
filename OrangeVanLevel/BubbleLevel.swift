@@ -5,21 +5,23 @@ See the License.txt file for this sample’s licensing information.
 import SwiftUI
 
 struct BubbleLevel: View {
-    @EnvironmentObject var detector: LevelProxy
+    @EnvironmentObject var btLevel: LevelProxy
 
-    let range = Float.pi
+    let range : Float = 180
+    let maxAngle : Float = 10
     let levelSize: Float = 300
 
     var bubbleXPosition: CGFloat {
-        let zeroBasedRoll = detector.roll + range / 2
-        let rollAsFraction = zeroBasedRoll / range
-        return CGFloat(rollAsFraction * levelSize)
+        
+        let constrainedRoll = btLevel.roll == 0 ? 0 : min(maxAngle , abs(btLevel.roll)) * (btLevel.roll / abs(btLevel.roll))
+        let rollAsFraction = constrainedRoll / maxAngle
+        return CGFloat((-rollAsFraction * levelSize/2) + levelSize/2)
     }
 
     var bubbleYPosition: CGFloat {
-        let zeroBasedPitch = detector.pitch + range / 2
-        let pitchAsFraction = zeroBasedPitch / range
-        return CGFloat(pitchAsFraction * levelSize)
+        let constrainedPitch = btLevel.pitch == 0 ? 0 : min(maxAngle , abs(btLevel.pitch)) * (btLevel.pitch / abs(btLevel.pitch))
+        let pitchAsFraction = constrainedPitch / maxAngle
+        return CGFloat((-pitchAsFraction * levelSize/2) + levelSize/2)
     }
 
     var verticalLine: some View {
@@ -40,11 +42,13 @@ struct BubbleLevel: View {
                 ZStack {
                     
                     Circle()
+//                        .withAnimation(.linear(duration: 0.1) {
                         .foregroundColor(.accentColor)
                         .frame(width: 50, height: 50)
-                        .position(x: bubbleXPosition,
-                                  y: bubbleYPosition)
-                    
+                        .position(x: bubbleXPosition, y: bubbleYPosition)
+                        .animation(.linear(duration: 0.15), value:bubbleXPosition)
+                        .animation(.linear(duration: 0.15), value:bubbleYPosition)
+
                     Circle()
                         .stroke(lineWidth: 0.5)
                         .frame(width: 20, height: 20)

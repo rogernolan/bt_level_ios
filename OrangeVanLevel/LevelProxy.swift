@@ -318,17 +318,11 @@ extension CBCharacteristic {
         guard let data = value else {
             return Float.nan
         }
-//        let lowbits = data[2]
-//        let highbits = data[3]
-//        let floatData = Int(lowbits) + Int(highbits)<<8
-//
-//        let sign = FloatingPointSign(rawValue: (floatData & 0b10000000_00000000) >> 15)!
-//        let exponent = (floatData & 0b01111100_00000000) >> 10
-//        let significand = (floatData & 0b00000011_11111111)
-//
-//        return Float(sign: sign, exponent: exponent, significand: significand)
-        let value = Float16(bitPattern: UInt16(bigEndian: data.subdata(in: 2..<data.count).withUnsafeBytes { $0.load(as: UInt16.self) }))
-        return Float(value)
+        
+        let bitsForFloat = UInt32(bigEndian: data.reversed().withUnsafeBytes { $0.load(as: UInt32.self)})
+
+        let value = Float(bitPattern: bitsForFloat )
+        return value
     }
 }
 
