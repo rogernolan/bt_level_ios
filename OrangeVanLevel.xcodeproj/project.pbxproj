@@ -16,6 +16,7 @@
 		C895DD7128E724C800D576F5 /* LevelProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C895DD6F28E724C800D576F5 /* LevelProxy.swift */; };
 		C895DD7328E725EE00D576F5 /* OrientationDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C895DD7228E725EE00D576F5 /* OrientationDataView.swift */; };
 		C895DD7728E848B300D576F5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C895DD7628E848B300D576F5 /* CoreBluetooth.framework */; };
+		C8BB7F8228EDBDF4000A6DA5 /* ConnectionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BB7F8128EDBDF4000A6DA5 /* ConnectionStatusView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		C895DD7228E725EE00D576F5 /* OrientationDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrientationDataView.swift; sourceTree = "<group>"; };
 		C895DD7428E844A300D576F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C895DD7628E848B300D576F5 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS16.0.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
+		C8BB7F8128EDBDF4000A6DA5 /* ConnectionStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatusView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				C895DD6E28E724C800D576F5 /* LevelView.swift */,
 				C895DD6F28E724C800D576F5 /* LevelProxy.swift */,
 				C895DD7228E725EE00D576F5 /* OrientationDataView.swift */,
+				C8BB7F8128EDBDF4000A6DA5 /* ConnectionStatusView.swift */,
 				C8789BDE28D5F8FC00B6507B /* Assets.xcassets */,
 				C8789BE028D5F8FC00B6507B /* OrangeVanLevel.entitlements */,
 				C8789BE128D5F8FC00B6507B /* Preview Content */,
@@ -165,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8BB7F8228EDBDF4000A6DA5 /* ConnectionStatusView.swift in Sources */,
 				C895DD7128E724C800D576F5 /* LevelProxy.swift in Sources */,
 				C895DD7328E725EE00D576F5 /* OrientationDataView.swift in Sources */,
 				C895DD6D28E7248C00D576F5 /* DoubleAsFixedLengthString.swift in Sources */,

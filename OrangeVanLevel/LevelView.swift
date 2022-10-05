@@ -12,6 +12,8 @@ struct LevelView: View {
             BubbleLevel()
             OrientationDataView()
                 .padding(.top, 80)
+            ConnectionDataView()
+                .padding(.top, 80)
         }
         .onAppear {
             level.start()
