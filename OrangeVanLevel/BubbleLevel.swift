@@ -7,9 +7,10 @@ import SwiftUI
 struct BubbleLevel: View {
     @EnvironmentObject var btLevel: LevelProxy
 
-    let range : Float = 180
-    let maxAngle : Float = 10
+    let maxAngle : Float = 10       // Degrees we measure above this is just "maximum angle"
     let levelSize: CGFloat = 300
+    let bubbleSize: CGFloat = 50
+    var bubbleMovementLimit: CGFloat  { return  (levelSize - bubbleSize) / 2 }
 
     // convert the pitch and roll to polar coordiates so we can restrict r to 1
     var polarTheta : CGFloat {
@@ -33,12 +34,12 @@ struct BubbleLevel: View {
     // X position calculated from the polar versions above
     var bubbleXPosition: CGFloat {
         let rawX = polarR * cos(polarTheta)
-        return rawX * levelSize/2 + levelSize/2
+        return rawX * bubbleMovementLimit + levelSize/2
     }
 
     var bubbleYPosition: CGFloat {
         let rawY = polarR * sin(polarTheta)
-        return rawY * levelSize/2 + levelSize/2
+        return rawY * bubbleMovementLimit + levelSize/2
     }
 
     var verticalLine: some View {
@@ -72,7 +73,7 @@ struct BubbleLevel: View {
                     
                     Circle()
                         .foregroundColor(dotColour)
-                        .frame(width: 50, height: 50)
+                        .frame(width: bubbleSize, height: bubbleSize)
                         .position(x: bubbleXPosition, y: bubbleYPosition)
                         .animation(.linear(duration: 0.15), value:bubbleXPosition)
                         .animation(.linear(duration: 0.15), value:bubbleYPosition)
