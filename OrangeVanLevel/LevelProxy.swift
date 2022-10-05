@@ -1,5 +1,5 @@
 /*
-Model for bluetoothe level remote.
+ Model for bluetoothe level remote.
  based heavily on http://www.splinter.com.au/2019/06/06/bluetooth-sample-code/
  */
 
@@ -15,7 +15,6 @@ private let HEADING_CHARACTERISTIC_UUID = CBUUID(string:"BEAFB8BF-4088-4EC0-BDEF
 private let ROLL_CHARACTERISTIC_UUID = CBUUID(string:"1B65C3F5-9EED-4D42-8574-57ACCC37CBA0")
 private let PITCH_CHARACTERISTIC_UUID = CBUUID(string:"0FA9B7F6-5CB7-4654-89B2-102734F0AE4F")
 
-
 import CoreBluetooth
 
 class LevelProxy: ObservableObject {
@@ -30,12 +29,13 @@ class LevelProxy: ObservableObject {
     @Published var roll: Float = 0.0
     @Published var heading: Float = 0.0
     @Published var state = State.idle
+    
     enum State {
         case idle   // not connected
         case searching
         case connected
     }
-    
+
     // internal BTLE state machine
     var btleState = BTLEState.poweredOff {
         // we update the simplified published state when BTLE state changes
@@ -62,7 +62,6 @@ class LevelProxy: ObservableObject {
         case connected(CBPeripheral)
         case outOfRange(CBPeripheral)
         
-
         var levelSensor: CBPeripheral? {
             switch self {
             case .poweredOff: return nil
@@ -381,14 +380,10 @@ class MyPeripheralDelegate: NSObject, CBPeripheralDelegate {
         
         switch characteristic.uuid {
         case HEADING_CHARACTERISTIC_UUID:
-            print("Heading to \(floatValue)")
             LevelProxy.shared.heading = floatValue
         case ROLL_CHARACTERISTIC_UUID:
-            print("Roll to \(floatValue)")
             LevelProxy.shared.roll = floatValue
         case PITCH_CHARACTERISTIC_UUID:
-            print("Pitch to \(floatValue)")
-
             LevelProxy.shared.pitch = floatValue
 
         default:
