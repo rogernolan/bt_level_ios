@@ -1,5 +1,5 @@
 /*
-See the License.txt file for this sample’s licensing information.
+ Based on Apple's Sample BubbleLevel.
 */
 
 import SwiftUI

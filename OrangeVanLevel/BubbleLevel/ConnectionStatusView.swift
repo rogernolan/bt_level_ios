@@ -32,9 +32,20 @@ struct ConnectionDataView: View {
         }
     }
 
+    var connectionColour : Color {
+        switch level.state {
+        case .connected:
+            return .green
+        case .idle:
+            return .yellow
+        case .searching:
+            return .orange
+        }
+    }
     
     var body: some View {
         Label (connectionDescription, systemImage:connectionIcon )
+            .foregroundColor(connectionColour)
     }
 }
 

@@ -1,6 +1,6 @@
 /*
-See the License.txt file for this sample’s licensing information.
-*/
+Based on Apple's Sample BubbleLevel.
+ */
 
 import SwiftUI
 
@@ -10,7 +10,7 @@ struct BubbleLevel: View {
     let maxAngle : Float = 10       // Degrees we measure above this is just "maximum angle"
     let levelSize: CGFloat = 300
     let bubbleSize: CGFloat = 50
-    var bubbleMovementLimit: CGFloat  { return  (levelSize - bubbleSize) / 2 }
+    var bubbleMovementLimit: CGFloat  { return  (levelSize - bubbleSize) / 2 } // keep the bubble inside the circle
 
     // convert the pitch and roll to polar coordiates so we can restrict r to 1
     var polarTheta : CGFloat {
@@ -53,7 +53,7 @@ struct BubbleLevel: View {
     }
 
     // colour for the bubble based on the distance from 0,0
-    var dotColour : Color {
+    var bubbleColour : Color {
         switch polarR {
         case 0...0.1:
             return .green
@@ -72,7 +72,7 @@ struct BubbleLevel: View {
                 ZStack {
                     
                     Circle()
-                        .foregroundColor(dotColour)
+                        .foregroundColor(bubbleColour)
                         .frame(width: bubbleSize, height: bubbleSize)
                         .position(x: bubbleXPosition, y: bubbleYPosition)
                         .animation(.linear(duration: 0.15), value:bubbleXPosition)

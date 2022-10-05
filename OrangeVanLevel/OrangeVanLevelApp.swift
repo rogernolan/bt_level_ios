@@ -13,8 +13,18 @@ struct OrangeVanLevelApp: App {
 
     var body: some Scene {
         WindowGroup {
-            LevelView()
-                .environmentObject(level)
+            
+            TabView {
+                LevelView()
+                    .environmentObject(level)
+                    .tabItem {
+                        Label("Level", systemImage: "level")
+                    }
+                TempView()
+                    .tabItem {
+                        Label("Temp", systemImage: "thermometer")
+                    }
+            }
         }
     }
 }

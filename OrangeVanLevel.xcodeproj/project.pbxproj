@@ -17,6 +17,7 @@
 		C895DD7328E725EE00D576F5 /* OrientationDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C895DD7228E725EE00D576F5 /* OrientationDataView.swift */; };
 		C895DD7728E848B300D576F5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C895DD7628E848B300D576F5 /* CoreBluetooth.framework */; };
 		C8BB7F8228EDBDF4000A6DA5 /* ConnectionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BB7F8128EDBDF4000A6DA5 /* ConnectionStatusView.swift */; };
+		C8BB7F8428EDC2D6000A6DA5 /* TempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BB7F8328EDC2D6000A6DA5 /* TempView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		C895DD7428E844A300D576F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C895DD7628E848B300D576F5 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS16.0.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
 		C8BB7F8128EDBDF4000A6DA5 /* ConnectionStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatusView.swift; sourceTree = "<group>"; };
+		C8BB7F8328EDC2D6000A6DA5 /* TempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,12 +71,10 @@
 			children = (
 				C895DD7428E844A300D576F5 /* Info.plist */,
 				C8789BDA28D5F8FB00B6507B /* OrangeVanLevelApp.swift */,
-				C895DD6A28E7246500D576F5 /* BubbleLevel.swift */,
-				C895DD6C28E7248C00D576F5 /* DoubleAsFixedLengthString.swift */,
-				C895DD6E28E724C800D576F5 /* LevelView.swift */,
-				C895DD6F28E724C800D576F5 /* LevelProxy.swift */,
-				C895DD7228E725EE00D576F5 /* OrientationDataView.swift */,
-				C8BB7F8128EDBDF4000A6DA5 /* ConnectionStatusView.swift */,
+				C8BB7F8528EDC40C000A6DA5 /* BubbleLevel */,
+				C8BB7F8628EDC428000A6DA5 /* TempView */,
+				C8BB7F8728EDC439000A6DA5 /* Model */,
+				C8BB7F8828EDC456000A6DA5 /* Helpers */,
 				C8789BDE28D5F8FC00B6507B /* Assets.xcassets */,
 				C8789BE028D5F8FC00B6507B /* OrangeVanLevel.entitlements */,
 				C8789BE128D5F8FC00B6507B /* Preview Content */,
@@ -96,6 +96,41 @@
 				C895DD7628E848B300D576F5 /* CoreBluetooth.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C8BB7F8528EDC40C000A6DA5 /* BubbleLevel */ = {
+			isa = PBXGroup;
+			children = (
+				C895DD6A28E7246500D576F5 /* BubbleLevel.swift */,
+				C895DD6E28E724C800D576F5 /* LevelView.swift */,
+				C895DD7228E725EE00D576F5 /* OrientationDataView.swift */,
+				C8BB7F8128EDBDF4000A6DA5 /* ConnectionStatusView.swift */,
+			);
+			path = BubbleLevel;
+			sourceTree = "<group>";
+		};
+		C8BB7F8628EDC428000A6DA5 /* TempView */ = {
+			isa = PBXGroup;
+			children = (
+				C8BB7F8328EDC2D6000A6DA5 /* TempView.swift */,
+			);
+			path = TempView;
+			sourceTree = "<group>";
+		};
+		C8BB7F8728EDC439000A6DA5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C895DD6F28E724C800D576F5 /* LevelProxy.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C8BB7F8828EDC456000A6DA5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C895DD6C28E7248C00D576F5 /* DoubleAsFixedLengthString.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +205,7 @@
 			files = (
 				C8BB7F8228EDBDF4000A6DA5 /* ConnectionStatusView.swift in Sources */,
 				C895DD7128E724C800D576F5 /* LevelProxy.swift in Sources */,
+				C8BB7F8428EDC2D6000A6DA5 /* TempView.swift in Sources */,
 				C895DD7328E725EE00D576F5 /* OrientationDataView.swift in Sources */,
 				C895DD6D28E7248C00D576F5 /* DoubleAsFixedLengthString.swift in Sources */,
 				C895DD7028E724C800D576F5 /* LevelView.swift in Sources */,
