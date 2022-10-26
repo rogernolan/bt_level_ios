@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ConnectionDataView: View {
-    @EnvironmentObject var level: LevelProxy
+    @EnvironmentObject var level: BTLevelProxy
 
     var connectionDescription : String {
         switch level.state {
@@ -50,7 +50,7 @@ struct ConnectionDataView: View {
 }
 
 struct ConnectionDataView_Previews: PreviewProvider {
-    @StateObject static private var motionDetector = LevelProxy().started()
+    @StateObject static private var motionDetector = BTLevelProxy().started()
     
     static var previews: some View {
         OrientationDataView()

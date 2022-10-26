@@ -5,7 +5,7 @@
 import SwiftUI
 
 struct LevelView: View {
-    @EnvironmentObject var level: LevelProxy
+    @EnvironmentObject var level: BTLevelProxy
 
     var body: some View {
         VStack {
@@ -25,7 +25,7 @@ struct LevelView: View {
 }
 
 struct LevelView_Previews: PreviewProvider {
-    @StateObject static var motionDetector = LevelProxy().started()
+    @StateObject static var motionDetector = BTLevelProxy().started()
     
     static var previews: some View {
         LevelView()

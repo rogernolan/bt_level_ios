@@ -17,8 +17,8 @@ private let PITCH_CHARACTERISTIC_UUID = CBUUID(string:"0FA9B7F6-5CB7-4654-89B2-1
 
 import CoreBluetooth
 
-class LevelProxy: ObservableObject {
-    static let shared = LevelProxy()
+class BTLevelProxy: ObservableObject {
+    static let shared = BTLevelProxy()
 
     let bluetoothCentral = CBCentralManager(delegate: MyCentralManagerDelegate.shared,
                                                                       queue: nil, options: [
@@ -164,8 +164,8 @@ class LevelProxy: ObservableObject {
     }
 }
 
-extension LevelProxy {
-    func started() -> LevelProxy {
+extension BTLevelProxy {
+    func started() -> BTLevelProxy {
         start()
         return self
     }
@@ -180,47 +180,47 @@ class MyCentralManagerDelegate: NSObject, CBCentralManagerDelegate {
 
         case .poweredOn:        // this is actually the only case we care about
             // Are we transitioning from BT off to BT ready?
-            if case .poweredOff = LevelProxy.shared.btleState {
+            if case .poweredOff = BTLevelProxy.shared.btleState {
                 // check if we have an old connection to restart
                 if let peripheralIdStr = UserDefaults.standard.object(forKey: peripheralIdDefaultsKey) as? String,
                     let peripheralId = UUID(uuidString: peripheralIdStr),
                     let previouslyConnected = central
                         .retrievePeripherals(withIdentifiers: [peripheralId])
                         .first {
-                            LevelProxy.shared.connect( peripheral: previouslyConnected)
+                            BTLevelProxy.shared.connect( peripheral: previouslyConnected)
                     
                 } else if let systemConnected = central.retrieveConnectedPeripherals(withServices: [LEVEL_SERVICE_UUID]).first {
                     // do we already have a connectoin?
 
-                    LevelProxy.shared.connect(peripheral: systemConnected)
+                    BTLevelProxy.shared.connect(peripheral: systemConnected)
 
                 } else {
                     // Not an error, simply the case that they've never paired
                     // before, or they did a manual unpair:
-                    LevelProxy.shared.btleState = .disconnected
+                    BTLevelProxy.shared.btleState = .disconnected
                     // so scan for devices
-                    LevelProxy.shared.scan()
+                    BTLevelProxy.shared.scan()
 
                 }
             }
             
             // Did CoreBluetooth wake us up with a peripheral that was connecting?
-            if case .restoringConnectingPeripheral(let peripheral) = LevelProxy.shared.btleState {
-                LevelProxy.shared.connect(peripheral: peripheral)
+            if case .restoringConnectingPeripheral(let peripheral) = BTLevelProxy.shared.btleState {
+                BTLevelProxy.shared.connect(peripheral: peripheral)
             }
             
             // CoreBluetooth woke us with a 'connected' peripheral, but we had
             // to wait until 'poweredOn' state:
-            if case .restoringConnectedPeripheral(let peripheral) = LevelProxy.shared.btleState {
+            if case .restoringConnectedPeripheral(let peripheral) = BTLevelProxy.shared.btleState {
                 if peripheral.pitchCharacteristic == nil {
-                    LevelProxy.shared.discoverServices(peripheral: peripheral)
+                    BTLevelProxy.shared.discoverServices(peripheral: peripheral)
                 } else {
-                    LevelProxy.shared.setConnected(peripheral: peripheral)
+                    BTLevelProxy.shared.setConnected(peripheral: peripheral)
                 }
             }
             
         default:        // all other core BT states are the same as powered off for us
-                LevelProxy.shared.btleState = .poweredOff
+                BTLevelProxy.shared.btleState = .poweredOff
         }
 
     }
@@ -239,12 +239,12 @@ class MyCentralManagerDelegate: NSObject, CBCentralManagerDelegate {
             switch peripheral.state {
             case .connecting: // I've only seen this happen when
                 // re-launching attached to Xcode.
-                LevelProxy.shared.btleState =
+                BTLevelProxy.shared.btleState =
                     .restoringConnectingPeripheral(peripheral)
 
             case .connected: // Store for connection / requesting
                 // notifications when BT starts.
-                LevelProxy.shared.btleState =
+                BTLevelProxy.shared.btleState =
                     .restoringConnectedPeripheral(peripheral)
             default: break
             }
@@ -252,31 +252,31 @@ class MyCentralManagerDelegate: NSObject, CBCentralManagerDelegate {
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral,  advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        guard case .scanning = LevelProxy.shared.btleState else { return }
+        guard case .scanning = BTLevelProxy.shared.btleState else { return }
         
         central.stopScan()
-        LevelProxy.shared.connect(peripheral: peripheral)
+        BTLevelProxy.shared.connect(peripheral: peripheral)
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         print("Did connect to \( String(describing: peripheral))")
         if peripheral.pitchCharacteristic == nil {
-            LevelProxy.shared.discoverServices(peripheral: peripheral)
+            BTLevelProxy.shared.discoverServices(peripheral: peripheral)
         } else {
-            LevelProxy.shared.setConnected(peripheral: peripheral)
+            BTLevelProxy.shared.setConnected(peripheral: peripheral)
         }
     }
     
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
-        LevelProxy.shared.btleState = .disconnected
+        BTLevelProxy.shared.btleState = .disconnected
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         // Did our currently-connected peripheral just disconnect?
-        if LevelProxy.shared.btleState.levelSensor?.identifier == peripheral.identifier {
+        if BTLevelProxy.shared.btleState.levelSensor?.identifier == peripheral.identifier {
             // reconnect
-            LevelProxy.shared.bluetoothCentral.connect(peripheral)
-            LevelProxy.shared.btleState = .outOfRange(peripheral)
+            BTLevelProxy.shared.bluetoothCentral.connect(peripheral)
+            BTLevelProxy.shared.btleState = .outOfRange(peripheral)
         }
     }
 }
@@ -330,44 +330,44 @@ class MyPeripheralDelegate: NSObject, CBPeripheralDelegate {
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         // Ignore services discovered late.
-        guard case .discoveringServices = LevelProxy.shared.btleState else {
+        guard case .discoveringServices = BTLevelProxy.shared.btleState else {
             return
         }
         
         if let error = error {
             print("Failed to discover services: \(error)")
-            LevelProxy.shared.disconnect()
+            BTLevelProxy.shared.disconnect()
             return
         }
         guard peripheral.levelService != nil else {
             print("Desired service missing")
-            LevelProxy.shared.disconnect()
+            BTLevelProxy.shared.disconnect()
             return
         }
         
         // Progress to the next step.
-        LevelProxy.shared.discoverCharacteristics(peripheral: peripheral)
+        BTLevelProxy.shared.discoverCharacteristics(peripheral: peripheral)
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         // Ignore characteristics arriving late.
-        guard case .discoveringCharacteristics = LevelProxy.shared.btleState
+        guard case .discoveringCharacteristics = BTLevelProxy.shared.btleState
             else
         { return }
         
         if let error = error {
             print("Failed to discover characteristics: \(error)")
-            LevelProxy.shared.disconnect()
+            BTLevelProxy.shared.disconnect()
             return
         }
         guard peripheral.pitchCharacteristic != nil else {
             print("Pitch characteristic missing")
-            LevelProxy.shared.disconnect()
+            BTLevelProxy.shared.disconnect()
             return
         }
 
         // Ready to go!
-        LevelProxy.shared.setConnected(peripheral: peripheral)
+        BTLevelProxy.shared.setConnected(peripheral: peripheral)
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
@@ -380,11 +380,11 @@ class MyPeripheralDelegate: NSObject, CBPeripheralDelegate {
         
         switch characteristic.uuid {
         case HEADING_CHARACTERISTIC_UUID:
-            LevelProxy.shared.heading = floatValue
+            BTLevelProxy.shared.heading = floatValue
         case ROLL_CHARACTERISTIC_UUID:
-            LevelProxy.shared.roll = floatValue
+            BTLevelProxy.shared.roll = floatValue
         case PITCH_CHARACTERISTIC_UUID:
-            LevelProxy.shared.pitch = floatValue
+            BTLevelProxy.shared.pitch = floatValue
 
         default:
             print("Update for unexpected \(String(describing: characteristic.description)) on \(String(describing: peripheral.name))")

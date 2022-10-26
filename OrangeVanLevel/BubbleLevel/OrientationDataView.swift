@@ -5,7 +5,7 @@
 import SwiftUI
 
 struct OrientationDataView: View {
-    @EnvironmentObject var detector: LevelProxy
+    @EnvironmentObject var detector: BTLevelProxy
 
     var rollString: String {
         detector.roll.describeAsFixedLengthString()
@@ -26,7 +26,7 @@ struct OrientationDataView: View {
 }
 
 struct OrientationDataView_Previews: PreviewProvider {
-    @StateObject static private var motionDetector = LevelProxy().started()
+    @StateObject static private var motionDetector = BTLevelProxy().started()
     
     static var previews: some View {
         OrientationDataView()

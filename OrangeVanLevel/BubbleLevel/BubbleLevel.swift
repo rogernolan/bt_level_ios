@@ -5,7 +5,7 @@ Based on Apple's Sample BubbleLevel.
 import SwiftUI
 
 struct BubbleLevel: View {
-    @EnvironmentObject var btLevel: LevelProxy
+    @EnvironmentObject var btLevel: BTLevelProxy
 
     let maxAngle : Float = 10       // Degrees we measure above this is just "maximum angle"
     let levelSize: CGFloat = 300
@@ -98,7 +98,7 @@ struct BubbleLevel: View {
 }
 
 struct BubbleLevel_Previews: PreviewProvider {
-    @StateObject static var motionDetector = LevelProxy().started()
+    @StateObject static var motionDetector = BTLevelProxy().started()
 
     static var previews: some View {
         BubbleLevel()

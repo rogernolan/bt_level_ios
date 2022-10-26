@@ -13,7 +13,7 @@
 		C895DD6B28E7246500D576F5 /* BubbleLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C895DD6A28E7246500D576F5 /* BubbleLevel.swift */; };
 		C895DD6D28E7248C00D576F5 /* DoubleAsFixedLengthString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C895DD6C28E7248C00D576F5 /* DoubleAsFixedLengthString.swift */; };
 		C895DD7028E724C800D576F5 /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C895DD6E28E724C800D576F5 /* LevelView.swift */; };
-		C895DD7128E724C800D576F5 /* LevelProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C895DD6F28E724C800D576F5 /* LevelProxy.swift */; };
+		C895DD7128E724C800D576F5 /* BTLevelProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C895DD6F28E724C800D576F5 /* BTLevelProxy.swift */; };
 		C895DD7328E725EE00D576F5 /* OrientationDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C895DD7228E725EE00D576F5 /* OrientationDataView.swift */; };
 		C895DD7728E848B300D576F5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C895DD7628E848B300D576F5 /* CoreBluetooth.framework */; };
 		C8BB7F8228EDBDF4000A6DA5 /* ConnectionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BB7F8128EDBDF4000A6DA5 /* ConnectionStatusView.swift */; };
@@ -29,7 +29,7 @@
 		C895DD6A28E7246500D576F5 /* BubbleLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleLevel.swift; sourceTree = "<group>"; };
 		C895DD6C28E7248C00D576F5 /* DoubleAsFixedLengthString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleAsFixedLengthString.swift; sourceTree = "<group>"; };
 		C895DD6E28E724C800D576F5 /* LevelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
-		C895DD6F28E724C800D576F5 /* LevelProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelProxy.swift; sourceTree = "<group>"; };
+		C895DD6F28E724C800D576F5 /* BTLevelProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTLevelProxy.swift; sourceTree = "<group>"; };
 		C895DD7228E725EE00D576F5 /* OrientationDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrientationDataView.swift; sourceTree = "<group>"; };
 		C895DD7428E844A300D576F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C895DD7628E848B300D576F5 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS16.0.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
@@ -120,7 +120,7 @@
 		C8BB7F8728EDC439000A6DA5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C895DD6F28E724C800D576F5 /* LevelProxy.swift */,
+				C895DD6F28E724C800D576F5 /* BTLevelProxy.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -204,7 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8BB7F8228EDBDF4000A6DA5 /* ConnectionStatusView.swift in Sources */,
-				C895DD7128E724C800D576F5 /* LevelProxy.swift in Sources */,
+				C895DD7128E724C800D576F5 /* BTLevelProxy.swift in Sources */,
 				C8BB7F8428EDC2D6000A6DA5 /* TempView.swift in Sources */,
 				C895DD7328E725EE00D576F5 /* OrientationDataView.swift in Sources */,
 				C895DD6D28E7248C00D576F5 /* DoubleAsFixedLengthString.swift in Sources */,

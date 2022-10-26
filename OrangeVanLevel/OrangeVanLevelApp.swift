@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct OrangeVanLevelApp: App {
-    @StateObject private var level = LevelProxy.shared
+    @StateObject private var level = BTLevelProxy.shared
 
     var body: some Scene {
         WindowGroup {
