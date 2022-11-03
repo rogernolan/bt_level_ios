@@ -8,7 +8,7 @@ extension Float {
     func describeAsFixedLengthString(integerDigits: Int = 2, fractionDigits: Int = 2) -> String {
         self.formatted(
             .number
-                .sign(strategy: .always())
+                .sign(strategy: .automatic)
                 .precision(
                     .integerAndFractionLength(integer: integerDigits, fraction: fractionDigits)
                 )

@@ -6,14 +6,26 @@ import SwiftUI
 
 struct LevelView: View {
     @EnvironmentObject var level: BTLevelProxy
+    @State private var failedToZero = false
 
     var body: some View {
+
         VStack {
-            BubbleLevel()
-            OrientationDataView()
-                .padding(.top, 80)
             ConnectionDataView()
-                .padding(.top, 80)
+            BubbleLevel()
+                .padding(.top, 60)
+
+            OrientationDataView()
+                .padding(.top, 60)
+            Button("Zero") {
+                failedToZero = !level.setZero()
+            }
+            .padding(.top, 100)
+            .alert("Cannot zero more than 5º", isPresented:$failedToZero) {
+                // default OK button
+            } message: {
+                Text("The level must be closer to level to set a zero offset.")
+            }
         }
         .onAppear {
             level.start()

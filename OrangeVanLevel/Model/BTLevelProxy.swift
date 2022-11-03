@@ -27,9 +27,25 @@ class BTLevelProxy: ObservableObject {
     
     @Published var pitch: Float = 0.0
     @Published var roll: Float = 0.0
+    
     @Published var heading: Float = 0.0
     @Published var state = State.idle
+
     
+    var reportedPitch: Float = 0.0 {
+        didSet {
+            pitch = reportedPitch - pitchOrigin
+        }
+    }
+    var reportedRoll: Float = 0.0 {
+        didSet {
+            roll = reportedRoll - rollOrigin
+        }
+    }
+    
+    var pitchOrigin : Float = 0.0
+    var rollOrigin : Float = 0.0
+
     enum State {
         case idle   // not connected
         case searching
@@ -152,10 +168,6 @@ class BTLevelProxy: ObservableObject {
         btleState = .discoveringCharacteristics(peripheral)
     }
     
-    func updateMotionData() {
-        (roll, pitch) = (0,0)
-    }
-
     func stop() {
      }
 
@@ -171,6 +183,19 @@ extension BTLevelProxy {
     }
 }
 
+extension BTLevelProxy {
+    func setZero() -> Bool {
+
+        guard abs(reportedPitch) <= 5.0 && abs(reportedRoll) <= 5.0  else {
+            return false
+        }
+        
+        pitchOrigin = reportedPitch
+        rollOrigin = reportedRoll
+        
+        return true
+    }
+}
 class MyCentralManagerDelegate: NSObject, CBCentralManagerDelegate {
     static let shared = MyCentralManagerDelegate()
     
@@ -382,9 +407,9 @@ class MyPeripheralDelegate: NSObject, CBPeripheralDelegate {
         case HEADING_CHARACTERISTIC_UUID:
             BTLevelProxy.shared.heading = floatValue
         case ROLL_CHARACTERISTIC_UUID:
-            BTLevelProxy.shared.roll = floatValue
+            BTLevelProxy.shared.reportedRoll = floatValue
         case PITCH_CHARACTERISTIC_UUID:
-            BTLevelProxy.shared.pitch = floatValue
+            BTLevelProxy.shared.reportedPitch = floatValue
 
         default:
             print("Update for unexpected \(String(describing: characteristic.description)) on \(String(describing: peripheral.name))")

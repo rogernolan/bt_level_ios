@@ -17,7 +17,7 @@ struct BubbleLevel: View {
         let constrainedRoll = btLevel.roll == 0 ? 0 : min(maxAngle , abs(btLevel.roll)) * (btLevel.roll / abs(btLevel.roll))
         
         let constrainedPitch = btLevel.pitch == 0 ? 0 : min(maxAngle , abs(btLevel.pitch)) * (btLevel.pitch / abs(btLevel.pitch))
-        let theta = CGFloat(atan2(constrainedPitch, constrainedRoll))
+        let theta = CGFloat(atan2(constrainedRoll, constrainedPitch))
         return theta
     }
     

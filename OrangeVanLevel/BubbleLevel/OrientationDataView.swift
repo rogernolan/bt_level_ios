@@ -8,11 +8,24 @@ struct OrientationDataView: View {
     @EnvironmentObject var detector: BTLevelProxy
 
     var rollString: String {
-        detector.roll.describeAsFixedLengthString()
+        if(detector.rollOrigin < 0.001 ) {
+            return detector.roll.describeAsFixedLengthString()
+        } else {
+            return detector.reportedRoll.describeAsFixedLengthString() + " - " +
+                detector.rollOrigin.describeAsFixedLengthString() + " = " +
+                detector.roll.describeAsFixedLengthString()
+        }
     }
 
     var pitchString: String {
-        detector.pitch.describeAsFixedLengthString()
+        if(detector.pitchOrigin < 0.001 ) {
+            return detector.pitch.describeAsFixedLengthString()
+        } else {
+            return detector.reportedPitch.describeAsFixedLengthString() + " - " +
+                detector.pitchOrigin.describeAsFixedLengthString() + " = " +
+                detector.pitch.describeAsFixedLengthString()
+        }
+
     }
 
     var body: some View {
