@@ -11,6 +11,7 @@ struct BubbleLevel: View {
     
     let levelSize: CGFloat = 300
     let bubbleSize: CGFloat = 50
+    
     var bubbleMovementLimit: CGFloat  { return  (levelSize - bubbleSize) / 2 } // keep the bubble inside the circle
 
     // convert the pitch and roll to polar coordiates so we can restrict r to 1
