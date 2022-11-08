@@ -8,6 +8,7 @@ struct BubbleLevel: View {
     @EnvironmentObject var btLevel: BTLevelProxy
 
     let maxAngle : Float = 10       // Degrees we measure above this is just "maximum angle"
+    
     let levelSize: CGFloat = 300
     let bubbleSize: CGFloat = 50
     var bubbleMovementLimit: CGFloat  { return  (levelSize - bubbleSize) / 2 } // keep the bubble inside the circle
