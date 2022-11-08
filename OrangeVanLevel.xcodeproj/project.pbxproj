@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C84573D6291A9C89001BC615 /* Van_LevelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84573D5291A9C89001BC615 /* Van_LevelApp.swift */; };
+		C84573D8291A9C89001BC615 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84573D7291A9C89001BC615 /* ContentView.swift */; };
+		C84573DA291A9C8A001BC615 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C84573D9291A9C8A001BC615 /* Assets.xcassets */; };
+		C84573DD291A9C8A001BC615 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C84573DC291A9C8A001BC615 /* Preview Assets.xcassets */; };
+		C84573E1291A9CF1001BC615 /* BubbleLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C895DD6A28E7246500D576F5 /* BubbleLevel.swift */; };
 		C8789BDB28D5F8FB00B6507B /* OrangeVanLevelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8789BDA28D5F8FB00B6507B /* OrangeVanLevelApp.swift */; };
 		C8789BDF28D5F8FC00B6507B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8789BDE28D5F8FC00B6507B /* Assets.xcassets */; };
 		C8789BE328D5F8FC00B6507B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8789BE228D5F8FC00B6507B /* Preview Assets.xcassets */; };
@@ -21,6 +26,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C84573D3291A9C89001BC615 /* Van Level Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Van Level Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C84573D5291A9C89001BC615 /* Van_LevelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Van_LevelApp.swift; sourceTree = "<group>"; };
+		C84573D7291A9C89001BC615 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C84573D9291A9C8A001BC615 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C84573DC291A9C8A001BC615 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C8789BD728D5F8FB00B6507B /* OrangeVanLevel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrangeVanLevel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8789BDA28D5F8FB00B6507B /* OrangeVanLevelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeVanLevelApp.swift; sourceTree = "<group>"; };
 		C8789BDE28D5F8FC00B6507B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +48,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C84573D0291A9C89001BC615 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C8789BD428D5F8FB00B6507B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -49,10 +66,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C84573D4291A9C89001BC615 /* Van Level Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				C84573D5291A9C89001BC615 /* Van_LevelApp.swift */,
+				C84573D7291A9C89001BC615 /* ContentView.swift */,
+				C84573D9291A9C8A001BC615 /* Assets.xcassets */,
+				C84573DB291A9C8A001BC615 /* Preview Content */,
+			);
+			path = "Van Level Watch App";
+			sourceTree = "<group>";
+		};
+		C84573DB291A9C8A001BC615 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				C84573DC291A9C8A001BC615 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		C8789BCE28D5F8FB00B6507B = {
 			isa = PBXGroup;
 			children = (
 				C8789BD928D5F8FB00B6507B /* OrangeVanLevel */,
+				C84573D4291A9C89001BC615 /* Van Level Watch App */,
 				C8789BD828D5F8FB00B6507B /* Products */,
 				C895DD7528E848B200D576F5 /* Frameworks */,
 			);
@@ -62,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				C8789BD728D5F8FB00B6507B /* OrangeVanLevel.app */,
+				C84573D3291A9C89001BC615 /* Van Level Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -136,6 +174,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C84573D2291A9C89001BC615 /* Van Level Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C84573E0291A9C8A001BC615 /* Build configuration list for PBXNativeTarget "Van Level Watch App" */;
+			buildPhases = (
+				C84573CF291A9C89001BC615 /* Sources */,
+				C84573D0291A9C89001BC615 /* Frameworks */,
+				C84573D1291A9C89001BC615 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Van Level Watch App";
+			productName = "Van Level Watch App";
+			productReference = C84573D3291A9C89001BC615 /* Van Level Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
 		C8789BD628D5F8FB00B6507B /* OrangeVanLevel */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C8789BE628D5F8FC00B6507B /* Build configuration list for PBXNativeTarget "OrangeVanLevel" */;
@@ -160,9 +215,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1400;
+				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
+					C84573D2291A9C89001BC615 = {
+						CreatedOnToolsVersion = 14.1;
+					};
 					C8789BD628D5F8FB00B6507B = {
 						CreatedOnToolsVersion = 14.0;
 					};
@@ -182,11 +240,21 @@
 			projectRoot = "";
 			targets = (
 				C8789BD628D5F8FB00B6507B /* OrangeVanLevel */,
+				C84573D2291A9C89001BC615 /* Van Level Watch App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C84573D1291A9C89001BC615 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C84573DD291A9C8A001BC615 /* Preview Assets.xcassets in Resources */,
+				C84573DA291A9C8A001BC615 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C8789BD528D5F8FB00B6507B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -199,6 +267,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C84573CF291A9C89001BC615 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C84573D8291A9C89001BC615 /* ContentView.swift in Sources */,
+				C84573D6291A9C89001BC615 /* Van_LevelApp.swift in Sources */,
+				C84573E1291A9CF1001BC615 /* BubbleLevel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C8789BD328D5F8FB00B6507B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -217,6 +295,67 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		C84573DE291A9C8A001BC615 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Van Level Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = Z7Y5UC9XJ6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Van Level";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = .watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		C84573DF291A9C8A001BC615 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Van Level Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = Z7Y5UC9XJ6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Van Level";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = .watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Release;
+		};
 		C8789BE428D5F8FC00B6507B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -411,6 +550,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C84573E0291A9C8A001BC615 /* Build configuration list for PBXNativeTarget "Van Level Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C84573DE291A9C8A001BC615 /* Debug */,
+				C84573DF291A9C8A001BC615 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C8789BD228D5F8FB00B6507B /* Build configuration list for PBXProject "OrangeVanLevel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
