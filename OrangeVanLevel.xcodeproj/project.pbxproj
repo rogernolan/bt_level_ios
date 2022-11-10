@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C8285725291D5FA0007062E7 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8285724291D5FA0007062E7 /* CoreBluetooth.framework */; };
 		C84573D6291A9C89001BC615 /* Van_LevelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84573D5291A9C89001BC615 /* Van_LevelApp.swift */; };
-		C84573D8291A9C89001BC615 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84573D7291A9C89001BC615 /* ContentView.swift */; };
 		C84573DA291A9C8A001BC615 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C84573D9291A9C8A001BC615 /* Assets.xcassets */; };
 		C84573DD291A9C8A001BC615 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C84573DC291A9C8A001BC615 /* Preview Assets.xcassets */; };
 		C84573E1291A9CF1001BC615 /* BubbleLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C895DD6A28E7246500D576F5 /* BubbleLevel.swift */; };
@@ -27,9 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C8285724291D5FA0007062E7 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS9.1.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
 		C84573D3291A9C89001BC615 /* Van Level Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Van Level Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C84573D5291A9C89001BC615 /* Van_LevelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Van_LevelApp.swift; sourceTree = "<group>"; };
-		C84573D7291A9C89001BC615 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C84573D9291A9C8A001BC615 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C84573DC291A9C8A001BC615 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C8789BD728D5F8FB00B6507B /* OrangeVanLevel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrangeVanLevel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8285725291D5FA0007062E7 /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,7 +72,6 @@
 			isa = PBXGroup;
 			children = (
 				C84573D5291A9C89001BC615 /* Van_LevelApp.swift */,
-				C84573D7291A9C89001BC615 /* ContentView.swift */,
 				C84573D9291A9C8A001BC615 /* Assets.xcassets */,
 				C84573DB291A9C8A001BC615 /* Preview Content */,
 			);
@@ -132,6 +132,7 @@
 		C895DD7528E848B200D576F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C8285724291D5FA0007062E7 /* CoreBluetooth.framework */,
 				C895DD7628E848B300D576F5 /* CoreBluetooth.framework */,
 			);
 			name = Frameworks;
@@ -272,7 +273,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C84573D8291A9C89001BC615 /* ContentView.swift in Sources */,
 				C84573E2291A9F40001BC615 /* BTLevelProxy.swift in Sources */,
 				C84573D6291A9C89001BC615 /* Van_LevelApp.swift in Sources */,
 				C84573E1291A9CF1001BC615 /* BubbleLevel.swift in Sources */,
@@ -309,6 +309,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Van Level";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "I need to see the level";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
@@ -340,6 +341,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Van Level";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "I need to see the level";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;

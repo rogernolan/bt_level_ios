@@ -71,33 +71,42 @@ struct BubbleLevel: View {
             let levelSize =  geometry.size.width * 0.8 // 300
             let bubbleSize = geometry.size.width * 0.1 // 20
             
-            let rag = Gradient (colors: [.accentColor, .gray] )
+            let rag = Gradient (colors: [.accentColor, .clear] )
             let grad = RadialGradient(gradient: rag, center: .center, startRadius: 0.0, endRadius: levelSize/2 )
             
             let bubbleMovementLimit  = (levelSize - bubbleSize) / 2 // keep the bubble inside the circle
             ZStack {
                 Circle()
-                    .foregroundStyle(grad)
+                    .fill(grad)
                     .frame(width: CGFloat(levelSize), height: CGFloat(levelSize), alignment: .center)
                     .overlay{   // OVerlay everything else so we only need to corect the frame of the circle shapeView once.
                         verticalLine.position(x: CGFloat(levelSize / 2), y: 0)
                         verticalLine.position(x: CGFloat(levelSize / 2), y: CGFloat(levelSize))
+                        
                         horizontalLine.position(x: 0, y: CGFloat(levelSize / 2))
                         horizontalLine.position(x: CGFloat(levelSize), y: CGFloat(levelSize / 2))
                         
-                        Circle()
-                            .stroke(lineWidth: 0.5)
-                            .frame(width: bubbleSize * 0.9, height: bubbleSize * 0.9)
-                        verticalLine
-                        horizontalLine
+                        Circle().stroke(lineWidth:0.5)            .foregroundColor(.accentColor)
+                        
+                        
+                        
                         Circle() // the bubble
                             .foregroundColor(bubbleColour)
                             .frame(width: bubbleSize, height: bubbleSize)
                             .position(x: bubbleXScale * bubbleMovementLimit + levelSize/2, y: bubbleYScale * bubbleMovementLimit + levelSize/2)
                             .animation(.linear(duration: 0.15), value:bubbleXScale)
                             .animation(.linear(duration: 0.15), value:bubbleYScale)
+                    
+                        
+                        Circle().stroke(lineWidth: 0.5)
+                            .frame(width: bubbleSize * 1.1, height: bubbleSize * 1.1)
+                            .foregroundColor(.accentColor)
+
+                        verticalLine
+                        horizontalLine
+                        
                     }
-            }.frame( width: geometry.width, height: geometry.height ) // Because the Geometry Reader doesn't centre it's child views.
+            }.frame( width: geometry.width, height: geometry.height ) // Because the Geometry Reader doesn't centre its child views.
         }
     }
 }
@@ -109,27 +118,4 @@ struct BubbleLevel_Previews: PreviewProvider {
         BubbleLevel()
             .environmentObject(motionDetector)
     }
-}
-
-struct Bubble: Shape {
-    
-    var x:Double = 0.0
-    var y:Double = 0.0
-    var r:Double = 0.1
-    var limit:Double = 0.8
-    
-    func path(in rect: CGRect) -> Path {
-        
-        let bubbleRad = min(rect.width, rect.height) * r
-
-        let rectX = x * rect.width - bubbleRad
-        let rectY = y * rect.height - bubbleRad
-
-        let rect = CGRect(x:rectX, y:rectY, width: bubbleRad * 2, height: bubbleRad * 2)
-        var path = Path()
-        path.addEllipse(in: rect)
-        
-        return path
-    }
-
 }
