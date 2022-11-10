@@ -8,11 +8,6 @@ struct BubbleLevel: View {
     @EnvironmentObject var btLevel: BTLevelProxy
 
     let maxAngle : Float = 10       // Degrees we measure above this is just "maximum angle"
-    
-    let levelSize: CGFloat = 300
-    let bubbleSize: CGFloat = 50
-    
-    var bubbleMovementLimit: CGFloat  { return  (levelSize - bubbleSize) / 2 } // keep the bubble inside the circle
 
     // convert the pitch and roll to polar coordiates so we can restrict r to 1
     var polarTheta : CGFloat {
@@ -33,25 +28,26 @@ struct BubbleLevel: View {
         return CGFloat((min(1.0, scaledR)))
     }
     
-    // X position calculated from the polar versions above
-    var bubbleXPosition: CGFloat {
-        let rawX = polarR * cos(polarTheta)
-        return rawX * bubbleMovementLimit + levelSize/2
+    // X and Y position calculated from the polar versions above expressed [0..1] within the size of the level
+    var bubbleXScale: CGFloat {
+        return polarR * cos(polarTheta)
     }
 
-    var bubbleYPosition: CGFloat {
-        let rawY = polarR * sin(polarTheta)
-        return rawY * bubbleMovementLimit + levelSize/2
+    var bubbleYScale: CGFloat {
+        return polarR * sin(polarTheta)
     }
 
     var verticalLine: some View {
         Rectangle()
-            .frame(width: 0.5, height: 40)
+            .frame(width: 0.5, height: 20)
+            .foregroundColor(.accentColor)
+
     }
 
     var horizontalLine: some View {
         Rectangle()
-            .frame(width: 40, height: 0.5)
+            .frame(width: 20, height: 0.5)
+            .foregroundColor(.accentColor)
     }
 
     // colour for the bubble based on the distance from 0,0
@@ -67,35 +63,42 @@ struct BubbleLevel: View {
     }
     
     var body: some View {
-        Circle()
-            .foregroundStyle(Color.secondary.opacity(0.25))
-            .frame(width: CGFloat(levelSize), height: CGFloat(levelSize))
-            .overlay(
-                ZStack {
-                    
-                    Circle()
-                        .foregroundColor(bubbleColour)
-                        .frame(width: bubbleSize, height: bubbleSize)
-                        .position(x: bubbleXPosition, y: bubbleYPosition)
-                        .animation(.linear(duration: 0.15), value:bubbleXPosition)
-                        .animation(.linear(duration: 0.15), value:bubbleYPosition)
-
-                    Circle()
-                        .stroke(lineWidth: 0.5)
-                        .frame(width: 20, height: 20)
-                    verticalLine
-                    horizontalLine
-                    
-                    verticalLine
-                        .position(x: CGFloat(levelSize / 2), y: 0)
-                    verticalLine
-                        .position(x: CGFloat(levelSize / 2), y: CGFloat(levelSize))
-                    horizontalLine
-                        .position(x: 0, y: CGFloat(levelSize / 2))
-                    horizontalLine
-                        .position(x: CGFloat(levelSize), y: CGFloat(levelSize / 2))
-                }
-            )
+        
+        GeometryReader { geo in
+            
+            let geometry = geo.frame(in:.local)
+            
+            let levelSize =  geometry.size.width * 0.8 // 300
+            let bubbleSize = geometry.size.width * 0.1 // 20
+            
+            let rag = Gradient (colors: [.accentColor, .gray] )
+            let grad = RadialGradient(gradient: rag, center: .center, startRadius: 0.0, endRadius: levelSize/2 )
+            
+            let bubbleMovementLimit  = (levelSize - bubbleSize) / 2 // keep the bubble inside the circle
+            ZStack {
+                Circle()
+                    .foregroundStyle(grad)
+                    .frame(width: CGFloat(levelSize), height: CGFloat(levelSize), alignment: .center)
+                    .overlay{   // OVerlay everything else so we only need to corect the frame of the circle shapeView once.
+                        verticalLine.position(x: CGFloat(levelSize / 2), y: 0)
+                        verticalLine.position(x: CGFloat(levelSize / 2), y: CGFloat(levelSize))
+                        horizontalLine.position(x: 0, y: CGFloat(levelSize / 2))
+                        horizontalLine.position(x: CGFloat(levelSize), y: CGFloat(levelSize / 2))
+                        
+                        Circle()
+                            .stroke(lineWidth: 0.5)
+                            .frame(width: bubbleSize * 0.9, height: bubbleSize * 0.9)
+                        verticalLine
+                        horizontalLine
+                        Circle() // the bubble
+                            .foregroundColor(bubbleColour)
+                            .frame(width: bubbleSize, height: bubbleSize)
+                            .position(x: bubbleXScale * bubbleMovementLimit + levelSize/2, y: bubbleYScale * bubbleMovementLimit + levelSize/2)
+                            .animation(.linear(duration: 0.15), value:bubbleXScale)
+                            .animation(.linear(duration: 0.15), value:bubbleYScale)
+                    }
+            }.frame( width: geometry.width, height: geometry.height ) // Because the Geometry Reader doesn't centre it's child views.
+        }
     }
 }
 
@@ -106,4 +109,27 @@ struct BubbleLevel_Previews: PreviewProvider {
         BubbleLevel()
             .environmentObject(motionDetector)
     }
+}
+
+struct Bubble: Shape {
+    
+    var x:Double = 0.0
+    var y:Double = 0.0
+    var r:Double = 0.1
+    var limit:Double = 0.8
+    
+    func path(in rect: CGRect) -> Path {
+        
+        let bubbleRad = min(rect.width, rect.height) * r
+
+        let rectX = x * rect.width - bubbleRad
+        let rectY = y * rect.height - bubbleRad
+
+        let rect = CGRect(x:rectX, y:rectY, width: bubbleRad * 2, height: bubbleRad * 2)
+        var path = Path()
+        path.addEllipse(in: rect)
+        
+        return path
+    }
+
 }
