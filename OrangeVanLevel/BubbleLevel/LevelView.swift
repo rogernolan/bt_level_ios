@@ -37,11 +37,11 @@ struct LevelView: View {
 }
 
 struct LevelView_Previews: PreviewProvider {
-    @StateObject static var motionDetector = BTLevelProxy().started()
+    @StateObject static var levelProxy = BTLevelProxy().started()
     
     static var previews: some View {
         LevelView()
-            .environmentObject(motionDetector)
+            .environmentObject(levelProxy)
     }
 }
                                          
