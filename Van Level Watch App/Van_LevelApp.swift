@@ -9,11 +9,12 @@ import SwiftUI
 
 @main
 struct Van_Level_Watch: App {
-    @StateObject private var level = BTLevelProxy()
+    @StateObject private var level = BTLevelProxy.shared
 
     var body: some Scene {
         WindowGroup {
             BubbleLevel()
+                .environmentObject(level)
         }
     }
 }
