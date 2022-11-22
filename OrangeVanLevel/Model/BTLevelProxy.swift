@@ -1,6 +1,6 @@
 /*
  Model for bluetoothe level remote.
- based heavily on http://www.splinter.com.au/2019/06/06/bluetooth-sample-code/
+ based on http://www.splinter.com.au/2019/06/06/bluetooth-sample-code/ but rapidly diverging.
  */
 
 private let restoreIdKey = "OrangeVanBTLEManager"                       // Key for BTCentral to store against
@@ -18,6 +18,7 @@ private let PITCH_CHARACTERISTIC_UUID = CBUUID(string:"0FA9B7F6-5CB7-4654-89B2-1
 import CoreBluetooth
 
 class BTLevelProxy: ObservableObject {
+    // TODO: Stop this using the singleton pattern :-(
     static let shared = BTLevelProxy()
 
     let bluetoothCentral = CBCentralManager(delegate: MyCentralManagerDelegate.shared,

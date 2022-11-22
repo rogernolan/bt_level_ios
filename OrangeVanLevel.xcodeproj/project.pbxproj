@@ -18,12 +18,16 @@
 		C8789BE328D5F8FC00B6507B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8789BE228D5F8FC00B6507B /* Preview Assets.xcassets */; };
 		C895DD6B28E7246500D576F5 /* BubbleLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C895DD6A28E7246500D576F5 /* BubbleLevel.swift */; };
 		C895DD6D28E7248C00D576F5 /* DoubleAsFixedLengthString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C895DD6C28E7248C00D576F5 /* DoubleAsFixedLengthString.swift */; };
-		C895DD7028E724C800D576F5 /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C895DD6E28E724C800D576F5 /* LevelView.swift */; };
+		C895DD7028E724C800D576F5 /* VanLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C895DD6E28E724C800D576F5 /* VanLevelView.swift */; };
 		C895DD7128E724C800D576F5 /* BTLevelProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C895DD6F28E724C800D576F5 /* BTLevelProxy.swift */; };
 		C895DD7328E725EE00D576F5 /* OrientationDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C895DD7228E725EE00D576F5 /* OrientationDataView.swift */; };
 		C895DD7728E848B300D576F5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C895DD7628E848B300D576F5 /* CoreBluetooth.framework */; };
 		C8BB7F8228EDBDF4000A6DA5 /* ConnectionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BB7F8128EDBDF4000A6DA5 /* ConnectionStatusView.swift */; };
 		C8BB7F8428EDC2D6000A6DA5 /* TempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BB7F8328EDC2D6000A6DA5 /* TempView.swift */; };
+		C8C1402B292BDD1100372141 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C8C1402A292BDD1100372141 /* FirebaseDatabaseSwift */; };
+		C8C1402D292BDD2600372141 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8C1402C292BDD2600372141 /* GoogleService-Info.plist */; };
+		C8C1402F292BDE7A00372141 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C8C1402E292BDE7A00372141 /* FirebaseAuth */; };
+		C8C14031292D125B00372141 /* TemperatureStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C14030292D125B00372141 /* TemperatureStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,13 +43,15 @@
 		C8789BE228D5F8FC00B6507B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C895DD6A28E7246500D576F5 /* BubbleLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleLevel.swift; sourceTree = "<group>"; };
 		C895DD6C28E7248C00D576F5 /* DoubleAsFixedLengthString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleAsFixedLengthString.swift; sourceTree = "<group>"; };
-		C895DD6E28E724C800D576F5 /* LevelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
+		C895DD6E28E724C800D576F5 /* VanLevelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VanLevelView.swift; sourceTree = "<group>"; };
 		C895DD6F28E724C800D576F5 /* BTLevelProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTLevelProxy.swift; sourceTree = "<group>"; };
 		C895DD7228E725EE00D576F5 /* OrientationDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrientationDataView.swift; sourceTree = "<group>"; };
 		C895DD7428E844A300D576F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C895DD7628E848B300D576F5 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS16.0.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
 		C8BB7F8128EDBDF4000A6DA5 /* ConnectionStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatusView.swift; sourceTree = "<group>"; };
 		C8BB7F8328EDC2D6000A6DA5 /* TempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempView.swift; sourceTree = "<group>"; };
+		C8C1402C292BDD2600372141 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Library/Mobile Documents/com~apple~CloudDocs/Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C8C14030292D125B00372141 /* TemperatureStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8C1402B292BDD1100372141 /* FirebaseDatabaseSwift in Frameworks */,
+				C8C1402F292BDE7A00372141 /* FirebaseAuth in Frameworks */,
 				C895DD7728E848B300D576F5 /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,6 +116,7 @@
 		C8789BD928D5F8FB00B6507B /* OrangeVanLevel */ = {
 			isa = PBXGroup;
 			children = (
+				C8C1402C292BDD2600372141 /* GoogleService-Info.plist */,
 				C895DD7428E844A300D576F5 /* Info.plist */,
 				C8789BDA28D5F8FB00B6507B /* OrangeVanLevelApp.swift */,
 				C8BB7F8528EDC40C000A6DA5 /* BubbleLevel */,
@@ -141,8 +150,8 @@
 		C8BB7F8528EDC40C000A6DA5 /* BubbleLevel */ = {
 			isa = PBXGroup;
 			children = (
+				C895DD6E28E724C800D576F5 /* VanLevelView.swift */,
 				C895DD6A28E7246500D576F5 /* BubbleLevel.swift */,
-				C895DD6E28E724C800D576F5 /* LevelView.swift */,
 				C895DD7228E725EE00D576F5 /* OrientationDataView.swift */,
 				C8BB7F8128EDBDF4000A6DA5 /* ConnectionStatusView.swift */,
 			);
@@ -161,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				C895DD6F28E724C800D576F5 /* BTLevelProxy.swift */,
+				C8C14030292D125B00372141 /* TemperatureStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -206,6 +216,10 @@
 			dependencies = (
 			);
 			name = OrangeVanLevel;
+			packageProductDependencies = (
+				C8C1402A292BDD1100372141 /* FirebaseDatabaseSwift */,
+				C8C1402E292BDE7A00372141 /* FirebaseAuth */,
+			);
 			productName = OrangeVanLevel;
 			productReference = C8789BD728D5F8FB00B6507B /* OrangeVanLevel.app */;
 			productType = "com.apple.product-type.application";
@@ -237,6 +251,9 @@
 				Base,
 			);
 			mainGroup = C8789BCE28D5F8FB00B6507B;
+			packageReferences = (
+				C8C14029292BDD1100372141 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = C8789BD828D5F8FB00B6507B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -263,6 +280,7 @@
 			files = (
 				C8789BE328D5F8FC00B6507B /* Preview Assets.xcassets in Resources */,
 				C8789BDF28D5F8FC00B6507B /* Assets.xcassets in Resources */,
+				C8C1402D292BDD2600372141 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,10 +303,11 @@
 			files = (
 				C8BB7F8228EDBDF4000A6DA5 /* ConnectionStatusView.swift in Sources */,
 				C895DD7128E724C800D576F5 /* BTLevelProxy.swift in Sources */,
+				C8C14031292D125B00372141 /* TemperatureStore.swift in Sources */,
 				C8BB7F8428EDC2D6000A6DA5 /* TempView.swift in Sources */,
 				C895DD7328E725EE00D576F5 /* OrientationDataView.swift in Sources */,
 				C895DD6D28E7248C00D576F5 /* DoubleAsFixedLengthString.swift in Sources */,
-				C895DD7028E724C800D576F5 /* LevelView.swift in Sources */,
+				C895DD7028E724C800D576F5 /* VanLevelView.swift in Sources */,
 				C895DD6B28E7246500D576F5 /* BubbleLevel.swift in Sources */,
 				C8789BDB28D5F8FB00B6507B /* OrangeVanLevelApp.swift in Sources */,
 			);
@@ -592,6 +611,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C8C14029292BDD1100372141 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C8C1402A292BDD1100372141 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C8C14029292BDD1100372141 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		C8C1402E292BDE7A00372141 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C8C14029292BDD1100372141 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C8789BCF28D5F8FB00B6507B /* Project object */;
 }

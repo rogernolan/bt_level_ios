@@ -71,8 +71,8 @@ struct BubbleLevel: View {
             let levelSize =  geometry.size.width * 0.8 // 300
             let bubbleSize = geometry.size.width * 0.1 // 20
             
-            let rag = Gradient (colors: [.accentColor, .clear] )
-            let grad = RadialGradient(gradient: rag, center: .center, startRadius: 0.0, endRadius: levelSize/2 )
+            let rag_gradient = Gradient (colors: [.accentColor, .clear] )
+            let grad = RadialGradient(gradient: rag_gradient, center: .center, startRadius: 0.0, endRadius: levelSize/2 )
             
             let bubbleMovementLimit  = (levelSize - bubbleSize) / 2 // keep the bubble inside the circle
             ZStack {
@@ -86,9 +86,7 @@ struct BubbleLevel: View {
                         horizontalLine.position(x: 0, y: CGFloat(levelSize / 2))
                         horizontalLine.position(x: CGFloat(levelSize), y: CGFloat(levelSize / 2))
                         
-                        Circle().stroke(lineWidth:0.5)            .foregroundColor(.accentColor)
-                        
-                        
+                        Circle().stroke(lineWidth:0.5).foregroundColor(.accentColor)
                         
                         Circle() // the bubble
                             .foregroundColor(bubbleColour)
